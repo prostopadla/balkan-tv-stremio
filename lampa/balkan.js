@@ -312,7 +312,76 @@
     });
   }
 
+  // Drugi dodaci (Interfejs mod i sl.) imaju ruski tekst upisan u kod.
+  // Ako Lampa nije na ruskom, prevodimo te natpise na srpsku latinicu.
+  var RU = {
+    'Фильм': 'Film', 'Сериал': 'Serija', 'Интерфейс мод': 'Interfejs mod', 'Интерфейс': 'Interfejs',
+    'Онгоинг': 'U toku', 'Завершён': 'Završena', 'Заверш': 'Završ', 'Отменён': 'Otkazana', 'Отмен': 'Otkaz',
+    'Выходит': 'Izlazi', 'В производстве': 'U produkciji', 'производстве': 'produkciji',
+    'В процессе': 'U toku', 'В процессе...': 'U toku...', 'Запланировано': 'Planirano', 'Пилотный': 'Pilot',
+    'Выпущенный': 'Objavljena', 'Скоро': 'Uskoro', 'Неизвестно': 'Nepoznato', 'Нет': 'Ne', 'Выход': 'Izlazak',
+    'Выключить': 'Isključi', 'включено': 'uključeno', 'отключено': 'isključeno',
+    'Тема интерфейса': 'Tema interfejsa', 'Выберите тему оформления интерфейса': 'Izaberi temu interfejsa',
+    'Цветные рейтинги': 'Obojene ocene', 'Изменять цвет рейтинга в зависимости от оценки': 'Boja ocene zavisi od ocene',
+    'Цветные элементы': 'Obojeni elementi',
+    'Отображать статусы сериалов и возрастные ограничения цветными': 'Status serija i uzrasna ograničenja u boji',
+    'Показывать все кнопки': 'Prikaži sva dugmad', 'Отображать все кнопки действий в карточке': 'Prikaži sva dugmad u kartici',
+    'Информация о сериях': 'Informacije o epizodama',
+    'Выберите как отображать информацию о сериях и сезонах': 'Kako prikazati informacije o epizodama i sezonama',
+    'Расположение лейбла о сериях': 'Položaj oznake o epizodama', 'Выберите позицию лейбла на постере': 'Položaj oznake na posteru',
+    'Верхний левый угол': 'Gornji levi ugao', 'Верхний правый угол': 'Gornji desni ugao',
+    'Нижний левый угол': 'Donji levi ugao', 'Нижний правый угол': 'Donji desni ugao',
+    'Актуальная информация': 'Aktuelne informacije', 'Полное количество': 'Ukupan broj',
+    'Изменить лейблы типа': 'Promeni oznake tipa', 'О плагине': 'O dodatku', 'Информация и поддержка': 'Informacije i podrška',
+    'Улучшенный интерфейс для приложения Lampa': 'Poboljšan interfejs za Lampu',
+    'Для применения изменений откройте карточку сериала заново': 'Da bi se promene primenile, ponovo otvori karticu serije',
+    'Возрастное ограничение:': 'Uzrasno ograničenje:', 'Всего серий:': 'Ukupno epizoda:', 'Вышедшие серии:': 'Izašle epizode:',
+    'Следующий эпизод:': 'Sledeća epizoda:', 'Статус сериала:': 'Status serije:', 'Режим отображения:': 'Način prikaza:'
+  };
+  var CYR = /[Ѐ-ӿ]/;
+  function plural(n, one, few, many) {
+    n = Math.abs(n) % 100; var d = n % 10;
+    if (n > 10 && n < 20) return many;
+    if (d == 1) return one;
+    if (d >= 2 && d <= 4) return few;
+    return many;
+  }
+  function translateRu(s) {
+    var t = s.trim();
+    if (RU[t]) return s.replace(t, RU[t]);
+    if (!/\d/.test(s) || !/сезон|Сезон|сери|эпизод|вышло/.test(s)) return s;
+    return s
+      .replace(/(\d+)\s*(сезонов|сезона|сезон)/g, function (m, n) { return n + ' ' + plural(+n, 'sezona', 'sezone', 'sezona'); })
+      .replace(/(\d+)\s*(серий|серии|серия)/g, function (m, n) { return n + ' ' + plural(+n, 'epizoda', 'epizode', 'epizoda'); })
+      .replace(/Последний вышедший: сезон/g, 'Poslednja izašla: sezona')
+      .replace(/, эпизод /g, ', epizoda ').replace(/: вышло /g, ': izašlo ')
+      .replace(/Сезон /g, 'Sezona ').replace(/ из /g, ' od ').replace(/ на /g, ' na ');
+  }
+  function translateNode(node) {
+    if (node.nodeType == 3) {
+      var v = node.nodeValue;
+      if (v && CYR.test(v)) { var n = translateRu(v); if (n != v) node.nodeValue = n; }
+      return;
+    }
+    if (node.nodeType != 1 || node.tagName == 'SCRIPT' || node.tagName == 'STYLE') return;
+    var w = document.createTreeWalker(node, NodeFilter.SHOW_TEXT, null, false), list = [], x;
+    while ((x = w.nextNode())) list.push(x);
+    for (var i = 0; i < list.length; i++) translateNode(list[i]);
+  }
+  function hookTranslate() {
+    if (Lampa.Storage.get('language', 'ru') == 'ru' || !window.MutationObserver) return;
+    translateNode(document.body);
+    new MutationObserver(function (muts) {
+      for (var i = 0; i < muts.length; i++) {
+        var m = muts[i];
+        if (m.type == 'characterData') translateNode(m.target);
+        else for (var j = 0; j < m.addedNodes.length; j++) translateNode(m.addedNodes[j]);
+      }
+    }).observe(document.body, { childList: true, subtree: true, characterData: true });
+  }
+
   function start() {
+    try { hookTranslate(); } catch (e) { log('translate error', e); }
     try { setup(false); } catch (e) { log('setup error', e); }
     try { hookParser(); } catch (e) { log('parser hook error', e); }
     try { hookPlayer(); } catch (e) { log('player hook error', e); }
