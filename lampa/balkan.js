@@ -131,6 +131,7 @@
       size: Lampa.Utils.bytesToSize(size),
       PublishDate: '',
       PublisTime: 0,
+      date: '', // stremio addons give no date; keeps Lampa from printing "NaN undefined NaN"
       Seeders: seeds,
       Peers: 0,
       MagnetUri: magnet,
