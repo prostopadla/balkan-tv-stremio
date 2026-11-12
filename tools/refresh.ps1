@@ -6,11 +6,13 @@
 #   - a channel already in our list stays, with iptv-org's current address, unless that address is truly dead
 #     (404/410, domain does not exist, connection refused);
 #   - a channel iptv-org no longer lists stays only if it still answers from here;
-#   - a new channel is added only if it answers (English ones: only formats Stremio's player can play);
+#   - a new Balkan channel is added only if it answers; new English channels only with -AddNewEnglish
+#     (then only formats Stremio's player can play);
 #   - if a list would shrink by more than 30 %, nothing is written and the script fails (GitHub emails the owner).
 param(
     [string]$Root = (Split-Path -Parent $PSScriptRoot),
-    [double]$MaxDrop = 0.30
+    [double]$MaxDrop = 0.30,
+    [switch]$AddNewEnglish
 )
 $ErrorActionPreference = 'Stop'
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
@@ -145,7 +147,9 @@ $keep = New-Object Collections.Generic.List[object]; $added = @(); $removed = @(
 $urls = New-Object Collections.Generic.HashSet[string]
 foreach ($c in $fresh) {
     $r = $res[$c.url]; $known = $cur.ContainsKey($c.cat + '|' + $c.key)
-    $ok = if ($known) { $r -ne 'hard' } else { Playable $c $r }
+    # New English channels are not added automatically: a US server can reach many regional feeds (DK/NO/SE copies...)
+    # that are blocked in Serbia. Add them by hand with -AddNewEnglish after a check from Serbia.
+    $ok = if ($known) { $r -ne 'hard' } elseif ($c.cat -eq 'english' -and -not $AddNewEnglish) { $false } else { Playable $c $r }
     if ($ok -and $urls.Add($c.url)) { $keep.Add($c); if (-not $known) { $added += "$($c.cat): $($c.clean)" } }
     elseif ($known -and -not $ok) { $removed += "$($c.cat): $($c.clean) (dead address)" }
 }
