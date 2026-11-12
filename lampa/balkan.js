@@ -32,8 +32,8 @@
   var SUBS_URL = 'https://opensubtitles-v3.strem.io';
   // OpenSubtitles (ISO 639-2) -> Lampa code and label, in order of preference
   var SUB_LANGS = [
-    { os: 'srp', code: 'sr', label: 'Српски' },
-    { os: 'scc', code: 'sr', label: 'Српски' },
+    { os: 'srp', code: 'sr', label: 'Srpski' },
+    { os: 'scc', code: 'sr', label: 'Srpski' },
     { os: 'hrv', code: 'hr', label: 'Hrvatski' },
     { os: 'bos', code: 'bs', label: 'Bosanski' },
     { os: 'eng', code: 'en', label: 'English' }
@@ -79,7 +79,7 @@
 
     S.set('balkan_setup', VERSION);
     log('settings applied');
-    if (force) Lampa.Noty.show('Балканские настройки применены');
+    if (force) Lampa.Noty.show('Balkanska podešavanja su primenjena');
   }
 
   /* ---------------- torrents ---------------- */
@@ -290,23 +290,23 @@
     if (!Lampa.SettingsApi) return;
     Lampa.SettingsApi.addComponent({
       component: 'balkan',
-      name: 'Балканы',
+      name: 'Balkan',
       icon: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="20" height="5" fill="#c6363c"/><rect x="2" y="9" width="20" height="5" fill="#0c4076"/><rect x="2" y="14" width="20" height="5" fill="#ffffff"/></svg>'
     });
     Lampa.SettingsApi.addParam({
       component: 'balkan',
       param: { name: 'balkan_ru_trackers', type: 'trigger', 'default': false },
       field: {
-        name: 'Русские трекеры тоже',
-        description: 'Кроме Torrentio / TorrentsDB / Peerflix искать ещё через jac.red (раздачи с русской озвучкой)'
+        name: 'I ruski trekeri',
+        description: 'Pored Torrentio / TorrentsDB / Peerflix traži i preko jac.red (torenti sa ruskom sinhronizacijom)'
       }
     });
     Lampa.SettingsApi.addParam({
       component: 'balkan',
       param: { name: 'balkan_reapply', type: 'button' },
       field: {
-        name: 'Применить настройки заново',
-        description: 'Сербские субтитры по умолчанию и плейлист Balkan + English TV'
+        name: 'Ponovo primeni podešavanja',
+        description: 'Srpski titlovi kao podrazumevani i plejlista Balkan + English TV'
       },
       onChange: function () { setup(true); }
     });
