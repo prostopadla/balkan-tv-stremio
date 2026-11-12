@@ -1,0 +1,30 @@
+name: Refresh channels
+
+# Every Monday: rebuild kodi.m3u and the Stremio addon files from iptv-org (see tools/refresh.ps1).
+# Can also be started by hand: Actions -> Refresh channels -> Run workflow.
+on:
+  schedule:
+    - cron: '0 3 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rebuild channel list
+        shell: pwsh
+        run: ./tools/refresh.ps1
+
+      - name: Publish
+        run: |
+          git add -A kodi.m3u catalog meta stream
+          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -m "Weekly channel refresh"
+          git push
