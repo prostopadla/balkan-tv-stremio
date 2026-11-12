@@ -13,7 +13,7 @@
   if (window.balkan_plugin_ready) return;
   window.balkan_plugin_ready = true;
 
-  var VERSION = 1;
+  var VERSION = 2;
   var PLAYLIST = 'https://prostopadla.github.io/balkan-tv-stremio/kodi.m3u';
   var SOURCES = [
     {
@@ -62,6 +62,12 @@
     S.set('subtitles_start', true);
     S.set('subtitles_lang', 'sr');
     S.set('parser_use', true);
+    // Lampa talks to the local TorrServer itself (instead of handing the magnet to the TorrServe app),
+    // so the subtitles added below reach the player
+    if (Lampa.Platform.is('android')) {
+      S.set('internal_torrclient', true);
+      if (!S.get('torrserver_url', '')) S.set('torrserver_url', 'http://127.0.0.1:8090');
+    }
 
     var list = S.get('iptv_playlist_custom', '[]');
     if (!Array.isArray(list)) list = [];
