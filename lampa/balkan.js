@@ -411,6 +411,7 @@
 
   function start() {
     try { hookTranslate(); } catch (e) { log('translate error', e); }
+    try { removeRuOnline(); } catch (e) { log('online cleanup error', e); }
     try { setup(false); } catch (e) { log('setup error', e); }
     try { hookParser(); } catch (e) { log('parser hook error', e); }
     try { hookPlayer(); } catch (e) { log('player hook error', e); }
