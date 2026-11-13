@@ -303,6 +303,14 @@
     });
     Lampa.SettingsApi.addParam({
       component: 'balkan',
+      param: { name: 'balkan_keep_online', type: 'trigger', 'default': false },
+      field: {
+        name: 'Zadrži ruske online dodatke',
+        description: 'Online Mod / Modss (ruska sinhronizacija). Isključeno: uklanjaju se pri sledećem pokretanju'
+      }
+    });
+    Lampa.SettingsApi.addParam({
+      component: 'balkan',
       param: { name: 'balkan_reapply', type: 'button' },
       field: {
         name: 'Ponovo primeni podešavanja',
@@ -378,6 +386,27 @@
         else for (var j = 0; j < m.addedNodes.length; j++) translateNode(m.addedNodes[j]);
       }
     }).observe(document.body, { childList: true, subtree: true, characterData: true });
+  }
+
+  /* ---------------- no Russian online plugins ---------------- */
+
+  // "Online" plugins (Online Mod, Modss) only stream from Russian sites with Russian/Ukrainian dubs.
+  // They are removed from the plugin list (takes effect on the next Lampa start).
+  // A box can keep them: Storage 'balkan_keep_online' = true (switch in Settings -> Balkan).
+  var RU_ONLINE = /nb557\.github\.io\/plugins\/online_mod|lampa\.stream\/modss|modss\.tv/i;
+
+  function removeRuOnline() {
+    var S = Lampa.Storage;
+    if (S.get('balkan_keep_online', false) === true || S.get('balkan_keep_online', '') === 'true') return;
+    var list = S.get('plugins', '[]');
+    if (!Array.isArray(list)) return;
+    var keep = list.filter(function (p) {
+      var url = typeof p === 'string' ? p : p && p.url;
+      return !(url && RU_ONLINE.test(url));
+    });
+    if (keep.length === list.length) return;
+    S.set('plugins', keep);
+    log('removed Russian online plugins:', list.length - keep.length);
   }
 
   function start() {
