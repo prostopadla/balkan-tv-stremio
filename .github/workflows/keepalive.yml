@@ -18,7 +18,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          for wf in refresh.yml keepalive.yml; do
+          for wf in refresh.yml epg.yml keepalive.yml; do
             gh api -X PUT "repos/${{ github.repository }}/actions/workflows/$wf/enable"
             echo "$wf: enabled"
           done

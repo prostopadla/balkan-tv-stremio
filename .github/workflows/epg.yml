@@ -1,0 +1,50 @@
+name: Build TV guide
+
+# Every night: download the TV programme (EPG) for the channels of kodi.m3u with the iptv-org/epg grabber
+# and publish it as release asset "epg/guide.xml.gz" (Kodi IPTV Simple reads it from there).
+# Can also be started by hand: Actions -> Build TV guide -> Run workflow.
+on:
+  schedule:
+    - cron: '30 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  epg:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          repository: iptv-org/epg
+          path: epg
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install grabber
+        working-directory: epg
+        run: npm install --no-audit --no-fund
+
+      - name: Pick a guide source for every channel
+        shell: pwsh
+        run: ./tools/epg-channels.ps1 -Sites epg/sites -Out custom.channels.xml
+
+      - name: Download programme (3 days)
+        working-directory: epg
+        run: npm run grab --- --channels=../custom.channels.xml --output=../guide.xml --days=3 --maxConnections=10 --timeout=20000
+
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          test -s guide.xml
+          gzip -9 -c guide.xml > guide.xml.gz
+          echo "channels: $(grep -c '<channel ' guide.xml)  programmes: $(grep -c '<programme ' guide.xml)  size: $(stat -c %s guide.xml.gz)"
+          gh release view epg >/dev/null 2>&1 || gh release create epg --title "TV guide (EPG)" --notes "Programme for kodi.m3u, rebuilt every night by .github/workflows/epg.yml."
+          gh release upload epg guide.xml.gz --clobber
