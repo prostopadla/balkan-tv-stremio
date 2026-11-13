@@ -1,6 +1,6 @@
 # Balkan TV for Stremio
 
-Static Stremio addon with free TV channels from Serbia, Croatia, Bosnia and Herzegovina and Montenegro (from the open iptv-org catalog, checked for availability).
+Static Stremio addon with free TV channels from Serbia, Croatia, Bosnia and Herzegovina, Montenegro, Slovenia and North Macedonia (from the open iptv-org catalog, checked for availability).
 
 Install page: https://prostopadla.github.io/balkan-tv-stremio/
 

@@ -18,7 +18,7 @@ $ErrorActionPreference = 'Stop'
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 $enc = New-Object Text.UTF8Encoding $false
 $src = 'https://iptv-org.github.io/iptv'
-$countries = [ordered]@{ 'rs' = 'Srbija'; 'hr' = 'Hrvatska'; 'ba' = 'Bosna i Hercegovina'; 'me' = 'Crna Gora' }
+$countries = [ordered]@{ 'rs' = 'Srbija'; 'hr' = 'Hrvatska'; 'ba' = 'Bosna i Hercegovina'; 'me' = 'Crna Gora'; 'si' = 'Slovenija'; 'mk' = 'Severna Makedonija' }
 $enGenres = [ordered]@{
     'News'            = 'News', 'Business', 'Weather'
     'Movies & Series' = 'Movies', 'Series', 'Classic'
@@ -52,7 +52,7 @@ function Read-M3u([string]$text) {
             if ($e -match 'http-referrer=("?)([^"]+)\1') { $ref = $matches[2].Trim() }
         }
         $name = if ($inf -match '"\s*,(.*)$') { $matches[1].Trim() } else { ($inf -replace '^.*?,', '').Trim() }
-        $clean = ($name -replace '\s*\(\d+p\)', '' -replace '\s*\((Serbia|Croatia|Bosnia and Herzegovina|Montenegro)\)', '' -replace '\s*\[[^\]]*\]', '').Trim()
+        $clean = ($name -replace '\s*\(\d+p\)', '' -replace '\s*\((Serbia|Croatia|Bosnia and Herzegovina|Montenegro|Slovenia|North Macedonia)\)', '' -replace '\s*\[[^\]]*\]', '').Trim()
         $tvgid = if ($inf -match 'tvg-id="([^"]*)"') { $matches[1] } else { '' }
         [pscustomobject]@{
             inf = $inf; extra = $extra; url = $l[$j].Trim(); ua = $ua; ref = $ref; name = $name; clean = $clean; tvgid = $tvgid
