@@ -1,4 +1,4 @@
-name: Build TV guide
+﻿name: Build TV guide
 
 # Every night: download the TV programme (EPG) for the channels of kodi.m3u with the iptv-org/epg grabber
 # and publish it as release asset "epg/guide.xml.gz" (Kodi IPTV Simple reads it from there).
@@ -38,6 +38,10 @@ jobs:
       - name: Download programme (3 days)
         working-directory: epg
         run: npm run grab --- --channels=../custom.channels.xml --output=../guide.xml --days=3 --maxConnections=10 --timeout=20000
+
+      - name: Add ex-YU channels the grabber can't reach (epgshare01 country files)
+        shell: pwsh
+        run: ./tools/epg-extra.ps1 -Guide guide.xml -Map tools/epg-extra.txt
 
       - name: Publish
         env:

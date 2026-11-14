@@ -1,0 +1,32 @@
+# kodi.m3u tvg-id = epgshare01 file | channel id in that file
+# Used by tools/epg-extra.ps1 only for channels that got no programme from the iptv-org grabber
+# (tvprofil.com answers 403 to GitHub runners). Files: https://epgshare01.online/epgshare01/
+ArenaSport1Premium.rs@SD = RS1 | Arena.Premium.1.HD.(RS).rs
+DMSat.rs@SD = RS1 | DM.SAT.rs
+IDJTV.rs@SD = RS1 | IDJTV.HD.rs
+KitchenTV.rs@SD = RS1 | Kitchen.TV.(RS).rs
+Nova.rs@SD = RS1 | NOVA.S.HD.(RS).rs
+PannonTV.rs@SD = RS1 | Pannon.RTV.rs
+RadioHitFMTV.rs@SD = RS1 | Hit.FM.radio.rs
+RadioKarolinaTV.rs@SD = RS1 | Radio.Karolina.rs
+RadioLolaTV.rs@SD = RS1 | Radio.Lola.rs
+RTVNoviPazar.rs@SD = RS1 | RTV.Novi.Pazar.(RS).rs
+SandzakTV.rs@SD = RS1 | Sandzak.TV.rs
+TDIRadioTV.rs@SD = RS1 | TDI.Radio.rs
+TVHram.rs@SD = RS1 | TV.Hram.rs
+TVPanon.rs@SD = RS1 | Panon.TV.rs
+TVPiKanal.rs@SD = RS1 | TV.PI.kanal.rs
+BravoKidsTV.hr@SD = HR1 | bravo!.KIDS.hr
+DiadoraTV.hr@SD = HR1 | Diadora.TV.hr
+RadioTelevizijaBanovina.hr@SD = HR1 | RTV.Banovina.hr
+SBTV.hr@SD = HR1 | SBTV.hr
+TVNova.hr@SD = HR1 | TV.Nova.hr
+MariaPlusVisionMedjugorje.ba@SD = BA1 | Maria.Vision.TV.ba
+NewsmaxBalkans.ba@SD = RS1 | NewsMax.Balkans.(RS).rs
+RTRSplus.ba@SD = BA1 | RTRS.Plus.ba
+RTRSTV.ba@SD = RS1 | RTRS.rs
+RTVHB.ba@SD = BA1 | RTVHB.HD.ba
+Televizija5.ba@SD = BA1 | TV5.HD.(BH).ba
+TVSLO1.si@HD = HR1 | SLO1.hr
+TVSLO2.si@HD = HR1 | SLO2.hr
+TVCGMNE.me@SD = RS1 | TVMNE.(RTCG.Sat.(RS)).rs
