@@ -1,7 +1,7 @@
 #EXTM3U
 #EXTINF:-1 tvg-id="ArenaSport1Premium.rs@SD" tvg-logo="https://i.imgur.com/csv6YsL.png" group-title="Srbija",Arena Sport 1 Premium (Serbia) (360p)
 http://telekomsrbije.com:2095/play/lhpjmkfVyhON1JAiZCx7vmRdlEHaaMaQAQw3LRAakpnghBMtR57sXXgLEXZF8gVD
-#EXTINF:-1 tvg-id="AXNSpin.hu@SD" tvg-logo="https://i.imgur.com/uVFenKm.png" http-referrer="https://cool-tv.net/" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 VLC/3.0.18 LibVLC/3.0.18" group-title="Srbija",AXN Spin (Hungary)
+#EXTINF:-1 tvg-id="AXNSpin.hu@SD" tvg-logo="https://i.imgur.com/uVFenKm.png" http-referrer="https://cool-tv.net/" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 VLC/3.0.18 LibVLC/3.0.18" group-title="Srbija",AXN Spin
 #EXTVLCOPT:http-referrer=https://cool-tv.net/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 VLC/3.0.18 LibVLC/3.0.18
 https://cronos.mangora1.cfd/spyn/usergencs85ja0j1rrnd.m3u8
@@ -30,6 +30,9 @@ http://213.91.179.28:8000/play/a0bw
 https://tv.rtvnp.rs/stream.m3u8
 #EXTINF:-1 tvg-id="SandzakTV.rs@SD" tvg-logo="https://i.imgur.com/lm9Fgsp.png" group-title="Srbija",Sandzak TV (576p)
 https://streaming.iptv.nextfiber.rs/nxt004/master.m3u8
+#EXTINF:-1 tvg-id="SciFi.rs@SD" tvg-logo="https://i.imgur.com/FPumwfg.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" group-title="Srbija",Sci Fi (Serbia)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+https://webtvstream.bhtelecom.ba/sci-fi.m3u8
 #EXTINF:-1 tvg-id="TDIRadioTV.rs@SD" tvg-logo="https://i.imgur.com/POdTmaD.png" group-title="Srbija",TDI Radio TV
 https://peer2.tdiradio.com/static/streaming-playlists/hls/8f5d84ce-e8ac-4109-9975-9665f5605557/master.m3u8
 #EXTINF:-1 tvg-id="TVArta.xk@SD" tvg-logo="https://i.imgur.com/MAhJkK9.png" group-title="Srbija",TV Arta (720p)
@@ -42,12 +45,19 @@ https://stream2.nmih.hu:4102/live.m3u8
 https://stream.pikanal.rs/pikanal/pgm.m3u8
 #EXTINF:-1 tvg-id="ZICOTV.rs@SD" tvg-logo="https://i.imgur.com/8wbTnNW.png" group-title="Srbija",ZICO TV (720p)
 https://gjirafa-video-live.gjirafa.net/gjvideo-live/j3a-n14-2pf-g3s/index.m3u8
-#EXTINF:-1 tvg-id="BravoKidsTV.hr@SD" tvg-logo="https://i.imgur.com/JcJ6fQ9.png" group-title="Hrvatska",Bravo! Kids TV
-https://streaming.radiohub.hr/RadioHub_WEB_streaming/BHWUC27pGZ/3.m3u8
 #EXTINF:-1 tvg-id="CMCTV.hr@SD" tvg-logo="https://i.imgur.com/FCb7Ag2.png" group-title="Hrvatska",CMC TV (1080p)
 https://stream.cmctv.hr:49998/cmc/live.m3u8
 #EXTINF:-1 tvg-id="DiadoraTV.hr@SD" tvg-logo="https://i.imgur.com/qZzsASl.png" group-title="Hrvatska",Diadora TV (720p)
 https://diadoratv.stream/live/diadora/playlist.m3u8
+#EXTINF:-1 tvg-id="HRT1.hr@SD" tvg-logo="https://i.imgur.com/lDSctzX.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36" group-title="Hrvatska",HRT 1 (720p)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36
+https://webtvstream.bhtelecom.ba/hrt1.m3u8
+#EXTINF:-1 tvg-id="HRT2.hr@SD" tvg-logo="https://i.imgur.com/yyePcl1.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36" group-title="Hrvatska",HRT 2 (720p)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36
+https://webtvstream.bhtelecom.ba/hrt2.m3u8
+#EXTINF:-1 tvg-id="HRT3.hr@SD" tvg-logo="https://i.imgur.com/4OrOJRx.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36" group-title="Hrvatska",HRT 3 (720p)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36
+https://webtvstream.bhtelecom.ba/hrt3.m3u8
 #EXTINF:-1 tvg-id="KlapeiTambureTV.hr@SD" tvg-logo="https://i.imgur.com/sKj3dgc.png" group-title="Hrvatska",Klape i Tambure TV (1080p)
 https://stream.cmctv.hr:49998/kit/live.m3u8
 #EXTINF:-1 tvg-id="RadioTelevizijaBanovina.hr@SD" tvg-logo="https://i.imgur.com/gCFgC5D.png" group-title="Hrvatska",Radio Televizija Banovina (1080p) [Not 24/7]
@@ -223,8 +233,6 @@ https://jmp2.uk/plu-67a09e5921af38000808900a.m3u8
 https://jmp2.uk/plu-6964b9e19bf57be1537fc7d7.m3u8
 #EXTINF:-1 tvg-id="CarChase.se@SE" tvg-logo="https://images.pluto.tv/channels/65a93b0607e03a000895abda/colorLogoPNG.png" group-title="English - Movies & Series",Car Chase (Sweden) (720p)
 https://jmp2.uk/plu-65a93be02fac9c00083cbac4.m3u8
-#EXTINF:-1 tvg-id="CinemaxAsia.sg@HD" tvg-logo="https://i.imgur.com/c8crJfA.png" group-title="English - Movies & Series",Cinemax Asia HD (1080p)
-http://202.150.165.66:8088/play/104-Cinemax/index.m3u8
 #EXTINF:-1 tvg-id="CinemaxAsia.sg@Taiwan" tvg-logo="https://i.imgur.com/c8crJfA.png" group-title="English - Movies & Series",Cinemax Asia Taiwan (1080p)
 http://125.227.210.55:1001/VideoInput/play.ts
 #EXTINF:-1 tvg-id="CSI.se@DK" tvg-logo="https://images.pluto.tv/channels/6525419dc52b3600083db9c3/colorLogoPNG.png" group-title="English - Movies & Series",CSI (Sweden)
@@ -258,14 +266,8 @@ https://nosignal1.antenaplay.ro/hls/fb-love-and-crime-sd/index.m3u8
 https://amogonetworx-grjngo-3-dk.samsung.wurl.tv/playlist.m3u8
 #EXTINF:-1 tvg-id="HappyDays.se@SE" tvg-logo="https://images.pluto.tv/channels/654a4e29ab05240008a18625/colorLogoPNG.png" group-title="English - Movies & Series",Happy Days (Sweden)
 https://jmp2.uk/plu-654a52254d6d8f00084eacfc.m3u8
-#EXTINF:-1 tvg-id="HBOAsia.sg@HD" tvg-logo="https://i.imgur.com/cE2gBt6.png" group-title="English - Movies & Series",HBO Asia HD (1080p)
-http://202.150.165.66:8088/play/100-HBO/index.m3u8
 #EXTINF:-1 tvg-id="HBOAsia.sg@Taiwan" tvg-logo="https://i.imgur.com/cE2gBt6.png" group-title="English - Movies & Series",HBO Asia Taiwan (1080p)
 http://125.227.210.55:1003/VideoInput/play.ts
-#EXTINF:-1 tvg-id="HBOHitsAsia.sg@HD" tvg-logo="https://i.imgur.com/CTjmocc.png" group-title="English - Movies & Series",HBO Hits Asia HD (1080p)
-http://202.150.165.66:8088/play/102-HBOHits/index.m3u8
-#EXTINF:-1 tvg-id="HBOSignatureAsia.sg@HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/HBO_Signature_Asia.png/960px-HBO_Signature_Asia.png" group-title="English - Movies & Series",HBO Signature Asia HD (1080p)
-http://202.150.165.66:8088/play/101-HBOSignature/index.m3u8
 #EXTINF:-1 tvg-id="HouseofLies.se@SE" tvg-logo="https://images.pluto.tv/channels/693ae62a43fe00a023e76e0d/colorLogoPNG_1769415649672.png" group-title="English - Movies & Series",House of Lies
 https://jmp2.uk/plu-693ae6bf0ddf7d2a40b7fd35.m3u8
 #EXTINF:-1 tvg-id="JAG.se@SE" tvg-logo="https://images.pluto.tv/channels/654a4ab92c1d330008657ae5/colorLogoPNG.png" group-title="English - Movies & Series",JAG (Sweden)
@@ -601,8 +603,6 @@ http://92.114.85.87:8007/play/a008
 http://92.114.85.87:8017/play/a004/index.m3u8
 #EXTINF:-1 tvg-id="ducktv.sk@HD" tvg-logo="https://i.imgur.com/gRFQ35W.png" group-title="English - Kids",ducktv HD
 https://dash3.antik.sk/live/duck_tv/index.m3u8
-#EXTINF:-1 tvg-id="HBOFamilyAsia.sg@HD" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/HBO_Family_Asia_logo.svg/960px-HBO_Family_Asia_logo.svg.png" group-title="English - Kids",HBO Family Asia HD (1080p)
-http://202.150.165.66:8088/play/103-HBOFamily/index.m3u8
 #EXTINF:-1 tvg-id="iCarly.se@SE" tvg-logo="https://images.pluto.tv/channels/61c0b9aab7facb0007913908/colorLogoPNG.png" group-title="English - Kids",iCarly (Sweden)
 https://jmp2.uk/plu-61c185049e0bde0007820039.m3u8
 #EXTINF:-1 tvg-id="IuniorTV.it@SD" tvg-logo="https://i.imgur.com/FBOJnfT.png" group-title="English - Kids",Iunior TV (1080p)
