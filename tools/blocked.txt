@@ -1,0 +1,59 @@
+# Paused addresses: did not play from Serbia (checked several times from a home network there).
+# tools/refresh.ps1 leaves them out for 4 weeks from the date at the end of the line, then gives them another
+# chance. A channel whose address changes in iptv-org comes back at once. Format: <url>  # <name> | <date>
+http://telekomsrbije.com:2095/play/lhpjmkfVyhON1JAiZCx7vmRdlEHaaMaQAQw3LRAakpnghBMtR57sXXgLEXZF8gVD  # Arena Sport 1 Premium (Serbia) (360p) | 2026-11-18
+https://shift03.isp.bg/DMSat/index.m3u8  # DM Sat (576p) | 2026-11-18
+https://best-str.umn.cdn.united.cloud/stream?channel=novashd&p=n0v43!23t001&player=m3u8&sp=novas&stream=hp7000&u=novas  # Nova (Serbia) (1080p) | 2026-11-18
+https://webtvstream.bhtelecom.ba/sci-fi.m3u8  # Sci Fi (Serbia) | 2026-11-18
+https://vod1.laki.eu/live/hram/index.m3u8  # TV Hram (576p) [Not 24/7] | 2026-11-18
+https://webtvstream.bhtelecom.ba/hrt1.m3u8  # HRT 1 (720p) | 2026-11-18
+https://webtvstream.bhtelecom.ba/hrt2.m3u8  # HRT 2 (720p) | 2026-11-18
+https://webtvstream.bhtelecom.ba/hrt3.m3u8  # HRT 3 (720p) | 2026-11-18
+http://stream.mcquack.net/276/index.m3u8  # Mezzo Live (1080p) | 2026-11-18
+https://uzivo.rtrs.tv/tv/live/index.m3u8  # RTRS TV (576p) [Not 24/7] | 2026-11-18
+https://mirtv.club/live/mirtv/index.m3u8  # Super TV (Bosnia and Herzegovina) (720p) | 2026-11-18
+http://telekomsrbije.com:2095/play/lhpjmkfVyhON1JAiZCx7vhWLdkJ_3C0RZgs4W19uhl8S3kU0l__4SxERjFMDgcT6  # Arena Sport 1 Premium (Slovenia) | 2026-11-18
+http://telekomsrbije.com:2095/play/lhpjmkfVyhON1JAiZCx7vgvje3t-Jiqa5d94ZBmKAqQgIFxl-Ch6B37eGpkVDb28  # Arena Sport Premium M1 | 2026-11-18
+http://telekomsrbije.com:2095/play/lhpjmkfVyhON1JAiZCx7vgvje3t-Jiqa5d94ZBmKAqR25sVNOuyj97sUY8aJBFf4  # Arena Sport Premium M2 | 2026-11-18
+http://telekomsrbije.com:2095/play/lhpjmkfVyhON1JAiZCx7vgvje3t-Jiqa5d94ZBmKAqSVr5S9_a_TNo_sg7gE1yvH  # Arena Sport Premium M3 | 2026-11-18
+http://ares.mnet.mk/hls/mnet.m3u8  # M-Net HD (720p) | 2026-11-18
+http://ares.mnet.mk/hls/mnet-kids.m3u8  # M-Net Kids (720p) | 2026-11-18
+http://ares.mnet.mk/hls/mnet-sport.m3u8  # M-Net Sport (720p) | 2026-11-18
+https://jmp2.uk/plu-66fbf4d3d7de140008d41f5b.m3u8  # NCIS: Los Angeles (Sweden) | 2026-11-18
+https://jmp2.uk/plu-64eca23c9c1e390008524ae6.m3u8  # Nordisk krim fra Viaplay | 2026-11-18
+https://jmp2.uk/plu-62bebb3a67307900077a7f9d.m3u8  # Numbers (Sweden) | 2026-11-18
+https://jmp2.uk/plu-61c0b0688a80a4000703fbcb.m3u8  # Pluto TV Action (Sweden) | 2026-11-18
+https://jmp2.uk/plu-65b917720d9ab4000833f323.m3u8  # Pluto TV Bud & Terence (Sweden) | 2026-11-18
+https://jmp2.uk/plu-5d134a74ca91eedee1630faa.m3u8  # Pluto TV Classic TV | 2026-11-18
+https://jmp2.uk/plu-5c5c31f2f21b553c1f673fb0.m3u8  # Pluto TV Cult Films (Germany) | 2026-11-18
+https://jmp2.uk/plu-5dc3fc6b9133f500099c7d98.m3u8  # Pluto TV Family Movie Club | 2026-11-18
+https://jmp2.uk/plu-685041d936c9361b1921c26c.m3u8  # Pluto TV Fantasy & Horror | 2026-11-18
+https://jmp2.uk/plu-61c0afa0a09bbe00078f8378.m3u8  # Pluto TV Film (Sweden) | 2026-11-18
+https://jmp2.uk/plu-63808dc806aa4700075f319a.m3u8  # Pluto TV Investigation | 2026-11-18
+https://54045f0c40fd442c8b06df076aaf1e85.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6065/master.m3u8  # Rakuten TV Action Movies UK (1080p) | 2026-11-18
+https://9be783d652cd4b099cf63e1dc134c4a3.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6181/master.m3u8  # Rakuten TV Comedy Movies UK (1080p) | 2026-11-18
+https://amg00426-littledotstudio-thechatshow-samsungnz-uqmtt.amagi.tv/playlist/amg00426-littledotstudio-thechatshow-samsungnz/playlist.m3u8  # The Chat Show Channel (1080p) | 2026-11-18
+http://103.253.74.210:7070/stream/122/index.m3u8  # Eurosport (France) | 2026-11-18
+https://cdn.stmify.com/out/v1/SKY_SPORTS_PREMIER_LEAGUE/index.m3u8  # Sky Sports News (576p) | 2026-11-18
+https://cdn.stmify.com/out/v1/SKY_SPORTS_ACTION/index.m3u8  # Sky Sports NFL (720p) | 2026-11-18
+http://stream.mcquack.net/212/index.m3u8  # Sport 5 (1080p) | 2026-11-18
+https://channels.trace.plus/Traceprod/TRACE_SPORT_STARS_sd/index.m3u8  # Trace Sport Stars SD | 2026-11-18
+http://103.253.74.210:7070/stream/118/index.m3u8  # Cartoon Network Asia Thailand | 2026-11-18
+http://103.253.74.210:7070/stream/116/index.m3u8  # Nick Jr. Asia | 2026-11-18
+http://103.253.74.210:7070/stream/117/index.m3u8  # Nickelodeon Asia | 2026-11-18
+http://92.180.26.103/stream/62/index.m3u8  # Mezzo | 2026-11-18
+https://cloudvideo.servers10.com:8081/8026/tracks-v1a1/index.m3u8  # SpektraTV (720p) | 2026-11-18
+https://channels.trace.plus/Traceprod/AFRICA_FR_hd/index.m3u8  # Trace Africa (1080p) | 2026-11-18
+https://channels.trace.plus/Traceprod/JAMA_hd/index.m3u8  # Trace Jama (1080p) | 2026-11-18
+https://channels.trace.plus/Traceprod/MZIKI_hd/index.m3u8  # Trace Mziki (1080p) | 2026-11-18
+https://channels.trace.plus/Traceprod/NAIJA_hd/index.m3u8  # Trace Naija (1080p) | 2026-11-18
+https://channels.trace.plus/Traceprod/AFRICA_EN_hd/index.m3u8  # Trace Ngoma (1080p) | 2026-11-18
+https://channels.trace.plus/Traceprod/UK_FAST_hd/index.m3u8  # Trace UK (1080p) | 2026-11-18
+https://channels.trace.plus/Traceprod/URBAN_FR_hd/index.m3u8  # Trace Urban HD (1080p) | 2026-11-18
+https://channels.trace.plus/Traceprod/URBAN_INTER_hd/index.m3u8  # Trace Urban International HD (1080p) | 2026-11-18
+https://dw2m7yrngfg8c.cloudfront.net/XITE_Reggae_Vibes.m3u8  # XITE Reggae Vibes (1080p) | 2026-11-18
+https://live77cdn2.antenaplay.ro/live2_aws4_sdi13/live2_aws4_sdi13_5000k.m3u8  # Chefi.ro HD (1080i) | 2026-11-18
+https://d39g1vxj2ef6in.cloudfront.net/v1/master/3fec3e5cac39a52b2132f9c66c83dae043dc17d4/prod-rakuten-stitched/master.m3u8?ads.xumo_channelId=88883037  # Hard Knocks Fighting Championship (720p) | 2026-11-18
+http://103.253.74.210:7070/stream/108/index.m3u8  # TLC Southeast Asia | 2026-11-18
+https://edge-rs-01.maksnet.tv/informertv-secure/web/playlist.m3u8  # Informer TV (720p) | 2026-11-18
+https://edge-rs-03.maksnet.tv/rtvkg/uzivo/playlist.m3u8  # TV Kragujevac (576p) | 2026-11-18

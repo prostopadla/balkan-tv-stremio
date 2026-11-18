@@ -1,4 +1,4 @@
-# Weekly refresh of the channel list: Kodi playlist (kodi.m3u) + Stremio addon files (catalog/, meta/, stream/).
+# Refresh of the channel list (every two days): Kodi playlist (kodi.m3u) + Stremio addon files (catalog/, meta/, stream/).
 # Source: the open iptv-org catalog. Runs on GitHub Actions (pwsh, US servers) and on Windows PowerShell 5.1.
 #
 # Many Balkan streams are geo-blocked outside the region, so a check from a US server can't be trusted to
@@ -8,6 +8,9 @@
 #   - a channel iptv-org no longer lists stays only if it still answers from here;
 #   - a new Balkan channel is added only if it answers; new English channels only with -AddNewEnglish
 #     (then only formats Stremio's player can play);
+#   - addresses in tools/blocked.txt (checked from Serbia, did not play there) are paused for 4 weeks from the
+#     date on their line; after that the channel gets another chance (treated as one of ours: kept unless truly
+#     dead). A new address from iptv-org is not paused at all;
 #   - if a list would shrink by more than 30 %, nothing is written and the script fails (GitHub emails the owner).
 param(
     [string]$Root = (Split-Path -Parent $PSScriptRoot),
@@ -143,10 +146,22 @@ Write-Host ('checked ' + $res.Count + ': ' + (($res.Values | Group-Object | Sort
 function Playable($c, $r) { if ($c.cat -eq 'english') { return $r -in 'ok:hls', 'ok:ts', 'ok:file' } return $r -like 'ok:*' }
 
 # --- decide
+$blocked = New-Object Collections.Generic.HashSet[string]
+$bf = Join-Path $Root 'tools/blocked.txt'
+$retry = New-Object Collections.Generic.HashSet[string]   # pause is over: give the address another chance
+if (Test-Path $bf) {
+    foreach ($l in [IO.File]::ReadAllLines($bf)) {
+        $u = ($l -replace '#.*', '').Trim(); if (-not $u) { continue }
+        $since = if ($l -match '\|\s*(\d{4}-\d{2}-\d{2})') { [datetime]$matches[1] } else { Get-Date }
+        if ($since.AddDays(28) -gt (Get-Date)) { [void]$blocked.Add($u) } else { [void]$retry.Add($u) }
+    }
+}
+Write-Host "paused: $($blocked.Count), pause over: $($retry.Count)"
 $keep = New-Object Collections.Generic.List[object]; $added = @(); $removed = @()
 $urls = New-Object Collections.Generic.HashSet[string]
 foreach ($c in $fresh) {
-    $r = $res[$c.url]; $known = $cur.ContainsKey($c.cat + '|' + $c.key)
+    if ($blocked.Contains($c.url)) { if ($cur.ContainsKey($c.cat + '|' + $c.key)) { $removed += "$($c.cat): $($c.clean) (paused: did not play in Serbia)" }; continue }
+    $r = $res[$c.url]; $known = $cur.ContainsKey($c.cat + '|' + $c.key) -or $retry.Contains($c.url)
     # New English channels are not added automatically: a US server can reach many regional feeds (DK/NO/SE copies...)
     # that are blocked in Serbia. Add them by hand with -AddNewEnglish after a check from Serbia.
     $ok = if ($known) { $r -ne 'hard' } elseif ($c.cat -eq 'english' -and -not $AddNewEnglish) { $false } else { Playable $c $r }
@@ -154,6 +169,7 @@ foreach ($c in $fresh) {
     elseif ($known -and -not $ok) { $removed += "$($c.cat): $($c.clean) (dead address)" }
 }
 foreach ($c in $gone) {
+    if ($blocked.Contains($c.url)) { $removed += "$($c.cat): $($c.clean) (paused)"; continue }
     if ((Playable $c $res[$c.url]) -and $urls.Add($c.url)) { $keep.Add($c) } else { $removed += "$($c.cat): $($c.clean) (gone from iptv-org)" }
 }
 
