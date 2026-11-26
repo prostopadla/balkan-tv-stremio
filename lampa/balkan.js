@@ -5,7 +5,7 @@
  *  - subtitles: Serbian first, extra srp/hrv/bos/eng subtitles from OpenSubtitles are added to the player;
  *  - audio: Serbian/Croatian/Bosnian track is picked automatically when the release has one;
  *  - IPTV: Balkan + English playlist (same as Kodi).
- * Install: Settings -> Extensions -> Add plugin -> https://avinkoapps.github.io/balkan-tv-stremio/lampa/balkan.js
+ * Install: Settings -> Extensions -> Add plugin -> https://prostopadla.github.io/balkan-tv-stremio/lampa/balkan.js
  */
 (function () {
   'use strict';
@@ -14,7 +14,7 @@
   window.balkan_plugin_ready = true;
 
   var VERSION = 2;
-  var PLAYLIST = 'https://avinkoapps.github.io/balkan-tv-stremio/kodi.m3u';
+  var PLAYLIST = 'https://prostopadla.github.io/balkan-tv-stremio/kodi.m3u';
   var SOURCES = [
     {
       name: 'Torrentio',
